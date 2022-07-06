@@ -28,7 +28,7 @@ export function TextForm({heading, mode, showAlert}) {
 	}
 
 	return (<>
-		<div className={`bg-${mode} pt-3 my-0`} style={{width: "100vw", height:"100vh", marginTop:"0px !important"}}>
+		<div className={`bg-${mode} py-3 my-0`} style={{width: "100%", height:"100%"}}>
 			<div className={`container mt-5 bg-${mode} text-${mode === "dark"? "light": "dark"}`}>
 				<h1>{heading}</h1>
 				<div className="my-4">

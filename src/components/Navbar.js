@@ -4,19 +4,25 @@ import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
 	function changeMode() {
-		props.setMode(props.mode==="dark"?"light":"dark")
+		props.setMode(props.mode === "dark" ? "light" : "dark")
 
-		props.showAlert("Success", (props.mode==="dark"?"light":"dark").charAt(0).toUpperCase() + (props.mode==="dark"?"light":"dark").slice(1) + " mode enabled")
-		
-		document.title = "TextUtils - " + (props.mode==="dark"?"light":"dark").charAt(0).toUpperCase() + (props.mode==="dark"?"light":"dark").slice(1)
+		props.showAlert("Success", (props.mode === "dark" ? "light" : "dark").charAt(0).toUpperCase() + (props.mode === "dark" ? "light" : "dark").slice(1) + " mode enabled")
+
+		document.title = "TextUtils - " + (props.mode === "dark" ? "light" : "dark").charAt(0).toUpperCase() + (props.mode === "dark" ? "light" : "dark").slice(1)
 	}
-	return (
+	return (<>
+
+
+
 		<nav className={`navbar navbar-${props.mode} navbar-expand-lg bg-${props.mode}`}>
 			<div className="container-fluid">
+
 				<Link className="navbar-brand" to="/">{props.title}</Link>
+
 				<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span className="navbar-toggler-icon"></span>
 				</button>
+
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 						<li className="nav-item">
@@ -27,13 +33,16 @@ export default function Navbar(props) {
 						</li>
 					</ul>
 				</div>
-				<div className="form-check form-switch">
+
+				<div className="form-check form-switch" id="switchBtn">
 					<input onClick={changeMode} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-						<label className={`form-check-label text-${props.mode==="dark"?"light":"dark"}`} htmlFor="flexSwitchCheckDefault">Dark Mode</label>
+					<label className={`form-check-label text-${props.mode === "dark" ? "light" : "dark"}`} htmlFor="flexSwitchCheckDefault">Dark Mode</label>
 				</div>
+
 			</div>
 		</nav>
-	)
+
+	</>)
 }
 
 Navbar.propTypes = {
